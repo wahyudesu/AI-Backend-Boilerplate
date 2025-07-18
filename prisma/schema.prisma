@@ -1,0 +1,71 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model User {
+  id            String       @id @default(cuid())
+  name          String
+  phone         String       @unique
+  email         String       @unique
+  emailVerified DateTime?
+  image         String?
+  role         UserRole @default(ADMIN)
+  password      String?
+  status        UserStatus   @default(ACTIVE)
+  isVerified    Boolean      @default(false)
+  token         String?
+  resetExpiry   DateTime?   
+  apiKeys      ApiKey[]
+  products      Product[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  roleId        String?
+
+  @@map("users")
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  PENDING
+}
+
+model ApiKey {
+  id        String       @id @default(cuid())
+  userId     String
+  key       String       @unique
+  name      String
+  createdAt DateTime     @default(now())
+  user       User @relation(fields: [userId], references: [id])
+}
+
+model Product {
+  id           String       @id @default(cuid())
+  name         String
+  slug         String       @unique
+  buyingPrice  Float        @default(0)
+  price        Float
+  image        String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([slug])
+  @@map("products")
+}
+
