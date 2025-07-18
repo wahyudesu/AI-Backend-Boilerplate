@@ -27,19 +27,9 @@ const features = [
   { icon: "🔐", text: "Built-in authentication system" },
   { icon: "🗝️", text: "API key management" },
   { icon: "🛒", text: "Complete products API" },
-  { icon: "👥", text: "User role management" },
   { icon: "📝", text: "OpenAPI documentation with Scalar" },
   { icon: "🔁", text: "Edge-ready with Cloudflare Workers" },
-];
-
-const gettingStarted = [
-  "Clone the repository",
-  "Run `pnpm install`",
-  "Set up your .env file (copy .env.example)",
-  "Add all Variables esp DB URL and RESEND API KEY",
-  "Run `npx prisma migrate dev --name init` to set up database",
-  "Run `npx prisma db seed && pnpm dev",
-  "Run `Open /scalar` to see your docs",
+  { icon: "💻", text: "Support multiple model with AI SDK" },
 ];
 
 const deploymentOptions = [
@@ -91,11 +81,6 @@ router.get("/", (c: Context) => {
     </li>
   `).join("");
 
-  // Generate getting started HTML
-  const gettingStartedHtml = gettingStarted.map(step => `
-    <li>${escapeHtml(step)}</li>
-  `).join("");
-
   // Generate deployment options HTML
   const deploymentHtml = deploymentOptions.map(option => `
     <div class="bg-white p-6 rounded-lg shadow-sm">
@@ -109,26 +94,26 @@ router.get("/", (c: Context) => {
 
   const aboutHonoHtml = `
     <section class="mb-12 bg-white p-6 rounded-lg shadow-sm">
-      <h2 class="text-2xl font-semibold mb-4 text-gray-800">🌟 About Hono</h2>
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">🌟 About This Project</h2>
       <div class="space-y-4">
         <p class="text-gray-700">
-          Hono is a lightweight, fast, and flexible web framework designed for modern web applications and APIs.
+          A lightweight, fast, and flexible web framework designed for modern web applications and APIs.
         </p>
-        <h3 class="text-xl font-medium text-indigo-600">Why choose Hono over Express?</h3>
+        <h3 class="text-xl font-medium text-indigo-600">Why choose Typescript over Python?</h3>
         <ul class="list-disc pl-5 space-y-2">
-          <li><strong>Universal Deployment:</strong> Same codebase runs on Node.js, serverless, edge, and more</li>
-          <li><strong>Blazing Fast:</strong> Optimized for performance with minimal overhead</li>
-          <li><strong>Modern Features:</strong> Built-in support for WebSockets, WebAssembly, and edge computing</li>
-          <li><strong>TypeScript First:</strong> Excellent TypeScript support out of the box</li>
-          <li><strong>Middleware Ecosystem:</strong> Compatible with Express middleware while being more lightweight</li>
-          <li><strong>Edge Native:</strong> Designed to run efficiently on edge platforms like Cloudflare Workers</li>
-          <li><strong>Zero Dependencies:</strong> Minimal package footprint for faster deployments</li>
+          <li><strong>Universal Deployment:</strong> Write once, run anywhere—Node.js, serverless, edge, and more</li>
+          <li><strong>Type Safety:</strong> Catch errors early and improve code reliability with static typing</li>
+          <li><strong>Performance:</strong> Fast runtime and optimized for backend and AI/ML workloads</li>
+          <li><strong>Modern Ecosystem:</strong> Rich libraries, tooling, and seamless integration with JavaScript</li>
+          <li><strong>Scalability:</strong> Easy to maintain and scale large codebases for production</li>
+          <li><strong>Edge Ready:</strong> Designed for edge platforms like Cloudflare Workers</li>
+          <li><strong>AI SDK:</strong> Standardizes integration of AI models across providers</li>
         </ul>
         <div class="mt-4 p-4 bg-indigo-50 rounded-lg">
           <p class="text-indigo-700">
             <strong>Key Motivation:</strong> Hono was created to bridge the gap between traditional server frameworks
             and modern edge computing, providing developers with a unified way to build applications that can run
-            anywhere without code changes.
+            anywhere without code changes. 
           </p>
         </div>
       </div>
@@ -140,7 +125,7 @@ router.get("/", (c: Context) => {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hono API Starter Kit - Vercel Edge</title>
+        <title> Simple AI Backend Typescript Starter Kit </title>
         <script src="https://cdn.tailwindcss.com"></script>
         <style>
           .feature-icon { width: 24px; height: 24px; margin-right: 8px; }
@@ -149,8 +134,11 @@ router.get("/", (c: Context) => {
       <body class="bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 py-12">
           <header class="mb-12 text-center">
-            <h1 class="text-4xl font-bold text-indigo-700 mb-4">Hono API Starter Kit - Vercel Edge </h1>
-            <p class="text-xl text-gray-600">A robust, production-ready API starter built with Hono, Prisma, and OpenAPI</p>
+            <h1 class="text-4xl font-bold text-indigo-700 mb-4">Simple AI Backend Typescript Starter Kit</h1>
+            <p class="text-xl text-gray-600">
+            Simple starter repo for your Machine Learning/AI projects
+            A robust, production-ready API starter built with Hono, Prisma, and OpenAPI
+            </p>
           </header>
 
           <!-- Features Section -->
@@ -159,16 +147,6 @@ router.get("/", (c: Context) => {
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
               ${featuresHtml}
             </ul>
-          </section>
-
-          <!-- Getting Started Section -->
-          <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-800">🚀 Getting Started</h2>
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <ol class="list-decimal pl-5 space-y-2">
-                ${gettingStartedHtml}
-              </ol>
-            </div>
           </section>
 
           <!-- Deployment Section -->

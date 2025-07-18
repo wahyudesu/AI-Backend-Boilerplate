@@ -10,8 +10,8 @@ const EnvSchema = z.object({
   NODE_ENV: z.string().default("development"),
   PORT: z.coerce.number().default(8000),
   LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]),
-  DATABASE_URL: z.string(),
-  FRONTEND_URL: z.string().default("http://localhost:3000"),
+  DATABASE_URL: z.string().optional(),
+  GROQ_API_KEY: z.string().optional(),
 });
 
 export type env = z.infer<typeof EnvSchema>;
