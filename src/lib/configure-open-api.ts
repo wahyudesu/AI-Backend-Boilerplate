@@ -9,10 +9,11 @@ export default function configureOpenAPI(app: AppOpenAPI) {
     openapi: "3.0.0",
     info: {
       version: packageJSON.version,
-      title: "Products API",
+      title: "AI Backend Typescript Starter Kit",
+      description: "AI Backend templates for your ML/AI project so you can deploy anywhere for free.\nBuilt with Hono, Mastra, and Vercel AI SDK",
     },
   });
-  app.get("/scalar", Scalar({ url: "/doc", theme: "kepler", layout: "modern", defaultHttpClient: {
+  app.get("/api", Scalar({ url: "/doc", theme: "kepler", layout: "classic", defaultHttpClient: {
     targetKey: "js",
     clientKey: "fetch",
   } }));

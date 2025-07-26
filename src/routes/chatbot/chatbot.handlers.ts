@@ -1,6 +1,6 @@
 import type { AppRouteHandler } from "@/lib/types";
-import type { ProcessTextRoute } from "./ai.routes";
-import { groq } from '@ai-sdk/groq';
+import type { ProcessTextRoute } from "./chatbot.routes";
+import { groq } from "@ai-sdk/groq";
 import { generateText } from 'ai';
 
 export const processText: AppRouteHandler<ProcessTextRoute> = async (c) => {

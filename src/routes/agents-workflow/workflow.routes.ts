@@ -14,12 +14,14 @@ export const OutputSchema = z.object({
   text: z.string().openapi({ example: "Why did the chicken cross the road? To get to the other side!" })
 });
 
-const tags = ["Input"];
+const tags = ["AI"];
 
 export const processText = createRoute({
   method: "post",
-  path: "/input",
+  path: "/meme",
   tags,
+  description: "Hierarchical Multi-Agent System.",
+
   request: {
     body: jsonContentRequired(InputSchema, "The text to process"),
   },

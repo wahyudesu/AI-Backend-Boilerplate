@@ -15,7 +15,7 @@ export function createRouter() {
 export default function createApp() {
   const app = createRouter();
   app.use(logger());
-  app.use(serveEmojiFavicon("🅿️"));
+  app.use(serveEmojiFavicon("🆗"));
 
   // Set The standard Not found route response
   app.notFound(notFound);

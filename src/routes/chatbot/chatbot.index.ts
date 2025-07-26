@@ -1,7 +1,7 @@
 import { createRouter } from "@/lib/create-app";
 
-import * as handlers from "./ai.handlers";
-import * as routes from "./ai.routes";
+import * as handlers from "./chatbot.handlers";
+import * as routes from "./chatbot.routes";
 
 const router = createRouter().openapi(routes.processText, handlers.processText);
 
